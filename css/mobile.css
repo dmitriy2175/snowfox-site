@@ -230,18 +230,19 @@ h1, h2, h3, .section-title, .navbar-brand {
 
 /* Обрезаем картинку снизу за счет фиксированной высоты и object-fit */
 .school-promo-img {
-    height: 105px !important; /* Уменьшенная высота, чтобы не выталкивать контент */
-    width: 100% !important;
-    max-width: 290px !important;
-    object-fit: cover;
-    object-position: center top; /* Держит фокус на лицах, подрезая низ */
+
+    height: 70px !important; /* Уменьшенная высота, чтобы не выталкивать контент */
+    width: 90% !important;
+    max-width: 320px !important;
+    object-fit: cover !important;
+    object-position: center 20% !important; /* Держит фокус на лицах, подрезая низ */
     border-radius: 12px;
     display: inline-block;
 }
 
 /* ПОДПИСЬ ТРЕНЕРЫ КУРСИВОМ И МЕЛКИМ ШРИФТОМ */
 .coaches-title {
-    font-size: 0.8rem !important; /* Мелкий размер */
+    font-size: 0.75rem !important; /* Мелкий размер */
     font-style: italic !important; /* Курсив */
     font-weight: 600 !important;
     text-align: center !important;
@@ -250,6 +251,7 @@ h1, h2, h3, .section-title, .navbar-brand {
     width: 100% !important;
     text-transform: none !important; /* Отключен верхний регистр */
     letter-spacing: normal !important;
+    color: #4a5568 !important;
 }
 
 .coach-list {
