@@ -229,32 +229,30 @@ h1, h2, h3, .section-title, .navbar-brand {
     display: block !important;
     width: 100%;
     text-align: center !important;
-    margin-top: 2px !important;
-    margin-bottom: 2px !important;
+    margin-top: 5px !important;
 }
 
 /* КАРДИНАЛЬНОЕ ОБРЕЗАНИЕ КАРТИНКИ СТРОГО КАК НА СКРИНШОТЕ */
 .school-promo-img {
-    height: 70px !important;     /* Жесткая фиксированная высота-полоска */
-    max-height: 70px !important; /* Перебиваем любые другие inline и Bootstrap свойства */
-    width: 90% !important;
-    max-width: 320px !important;
+    height: 175px !important; /* Увеличили высоту в 2.5 раза, чтобы тренеров было хорошо видно */
+    width: 95% !important;    /* Сделали чуть шире по бокам, чтобы картинка смотрелась гармонично */
+    max-width: 360px !important;
     object-fit: cover !important;
-    object-position: center 20% !important; /* Фокусируемся на лицах тренеров, обрезая лыжи */
-    border-radius: 12px !important;
+    object-position: center top !important; /* Ровняет картинку по верхнему краю, всё лишнее режется снизу */
+    border-radius: 14px !important;
     display: inline-block !important;
 }
 
 /* ПОДПИСЬ ТРЕНЕРЫ КУРСИВОМ И МЕЛКИМ ШРИФТОМ */
 .coaches-title {
-    font-size: 0.75rem !important; /* Мелкий размер */
-    font-style: italic !important; /* Строгий курсив */
-    font-weight: 700 !important;
+    font-size: 0.8rem !important;
+    font-style: italic !important;
+    font-weight: 600 !important;
     text-align: center !important;
-    margin-top: 3px !important;
+    margin-top: 6px !important;
     margin-bottom: 0px !important;
     width: 100% !important;
-    text-transform: none !important; /* Отключен верхний регистр (капс) */
+    text-transform: none !important;
     letter-spacing: normal !important;
     color: #4a5568 !important;
 }
