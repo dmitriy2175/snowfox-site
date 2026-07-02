@@ -195,16 +195,20 @@ h1, h2, h3, .section-title, .navbar-brand {
 .about-mobile-flex {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    justify-content: flex-start !important;
+    height: 100% !important;
+    max-height: calc(100vh - 68px) !important; /* Строгое ограничение под размер экрана */
+    justify-content: space-between !important;
     padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    overflow: hidden !important; /* Предотвращаем внутренний скролл */
 }
 
 .about-mobile-flex h1,
 .about-mobile-flex h2,
 .about-mobile-flex .section-title {
     margin-top: 2px !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 4px !important;
+    font-size: 1.3rem !important; /* Компактный размер заголовка */
 }
 
 .about-main-row {
@@ -212,11 +216,11 @@ h1, h2, h3, .section-title, .navbar-brand {
     display: flex;
     flex-direction: column !important;
     justify-content: flex-start !important;
-    gap: 4px !important;
+    gap: 2px !important;
 }
 
 .school-desc {
-    font-size: 0.82rem !important; /* Чуть уменьшили для плотности */
+    font-size: 0.78rem !important; /* Уменьшили для высокой плотности */
     line-height: 1.25;
     margin-bottom: 4px !important;
 }
@@ -226,39 +230,37 @@ h1, h2, h3, .section-title, .navbar-brand {
     width: 100%;
     text-align: center !important;
     margin-top: 2px !important;
+    margin-bottom: 2px !important;
 }
 
-/* Обрезаем картинку снизу за счет фиксированной высоты и object-fit */
+/* КАРДИНАЛЬНОЕ ОБРЕЗАНИЕ КАРТИНКИ СТРОГО КАК НА СКРИНШОТЕ */
 .school-promo-img {
-
-    height: 70px !important; /* Уменьшенная высота, чтобы не выталкивать контент */
+    height: 70px !important;     /* Жесткая фиксированная высота-полоска */
+    max-height: 70px !important; /* Перебиваем любые другие inline и Bootstrap свойства */
     width: 90% !important;
     max-width: 320px !important;
     object-fit: cover !important;
-    object-position: center 20% !important; /* Держит фокус на лицах, подрезая низ */
-    border-radius: 12px;
-    display: inline-block;
+    object-position: center 20% !important; /* Фокусируемся на лицах тренеров, обрезая лыжи */
+    border-radius: 12px !important;
+    display: inline-block !important;
 }
 
 /* ПОДПИСЬ ТРЕНЕРЫ КУРСИВОМ И МЕЛКИМ ШРИФТОМ */
 .coaches-title {
     font-size: 0.75rem !important; /* Мелкий размер */
-    font-style: italic !important; /* Курсив */
-    font-weight: 600 !important;
+    font-style: italic !important; /* Строгий курсив */
+    font-weight: 700 !important;
     text-align: center !important;
-    margin-top: 4px !important;
+    margin-top: 3px !important;
     margin-bottom: 0px !important;
     width: 100% !important;
-    text-transform: none !important; /* Отключен верхний регистр */
+    text-transform: none !important; /* Отключен верхний регистр (капс) */
     letter-spacing: normal !important;
     color: #4a5568 !important;
 }
 
 .coach-list {
-    font-size: 0.8rem !important;
-    line-height: 1.2;
-    text-align: center !important;
-    margin-bottom: 0 !important;
+    display: none !important; /* Полностью скрываем список фамилий, чтобы всё влезло */
 }
 
 .mobile-contact-layout {
