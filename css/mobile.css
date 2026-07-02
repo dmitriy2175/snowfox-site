@@ -59,9 +59,12 @@ h1, h2, h3, .section-title, .navbar-brand {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 10px 0 !important; /* Компактные отступы сверху/снизу */
+    padding: 10px 0 !important;
     position: relative;
     box-sizing: border-box;
+    
+    /* МАГИЯ ДЛЯМЕНЮ: сдвигает точку остановки скролла вниз на высоту шапки */
+    scroll-margin-top: 48px !important;
 }
 
 .navbar-compact-wrapper {
