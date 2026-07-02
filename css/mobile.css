@@ -215,8 +215,8 @@ h1, h2, h3, .section-title, .navbar-brand {
 
 .school-desc {
     font-size: 0.85rem !important;
-    line-height: 1.35;
-    margin-bottom: 8px !important;
+    line-height: 1.3;
+    margin-bottom: 5px !important;
 }
 
 .about-img-container {
@@ -227,9 +227,10 @@ h1, h2, h3, .section-title, .navbar-brand {
 }
 
 .school-promo-img {
-    max-height: 150px;
-    width: 95%;
-    max-width: 360px;
+    height: auto !important;
+    max-height: 110px !important;
+    width: auto !important;
+    max-width: 85% !important;
     object-fit: cover;
     border-radius: 12px;
     display: inline-block;
