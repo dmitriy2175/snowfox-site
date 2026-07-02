@@ -1,8 +1,8 @@
 html, body {
-    height: auto !important;
+    height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow: hidden; /* Блокируем стандартный скролл, доверяя его контейнеру */
 }
 
 body, .scroll-container {
@@ -32,7 +32,7 @@ h1, h2, h3, .section-title, .navbar-brand {
 }
 
 .section-title {
-    font-size: 1.6rem;
+    font-size: 1.4rem; /* Слегка уменьшили для экономии места */
 }
 
 .screen-section,
@@ -43,25 +43,23 @@ h1, h2, h3, .section-title, .navbar-brand {
     background-color: transparent !important;
 }
 
-/* ГАРАНТИРОВАННОЕ ОТКЛЮЧЕНИЕ ФИКСАЦИИ ЭКРАНОВ И СКРОЛЛ-СНЭПА ДЛЯ МОБИЛЬНЫХ */
+/* ЖЕСТКИЙ ПОСТРАНИЧНЫЙ ДОСКРОЛЛ ДЛЯ МОБИЛЬНЫХ */
 .scroll-container {
-    height: auto !important;
-    overflow-y: visible !important;
-    scroll-snap-type: none !important;
+    height: calc(100vh - 48px);
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
 }
 
-/* Секции свободно тянутся под размер контента на смартфонах */
 .screen-section {
-    min-height: calc(100vh - 48px) !important;
-    height: auto !important;
-    scroll-snap-align: none !important;
-    scroll-snap-stop: none !important;
+    height: calc(100vh - 48px);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 30px 0 !important;
+    padding: 10px 0 !important; /* Компактные отступы сверху/снизу */
     position: relative;
     box-sizing: border-box;
 }
@@ -159,7 +157,7 @@ h1, h2, h3, .section-title, .navbar-brand {
 }
 
 #gallery.screen-section {
-    padding-top: 50px !important;
+    padding-top: 25px !important;
     justify-content: flex-start !important;
 }
 
@@ -171,7 +169,7 @@ h1, h2, h3, .section-title, .navbar-brand {
     -webkit-overflow-scrolling: touch;
     padding-bottom: 5px;
     gap: 12px;
-    margin-top: 30px !important;
+    margin-top: 15px !important;
     padding-left: 7.5vw !important;
     padding-right: 7.5vw !important;
 }
@@ -188,72 +186,75 @@ h1, h2, h3, .section-title, .navbar-brand {
 
 .gallery-img {
     width: 100%;
-    height: 40vh !important;
+    height: 380px !important;
     object-fit: cover;
     border-radius: 14px;
 }
 
+/* АДАПТАЦИЯ СЕКЦИИ О ШКОЛЕ ПОД ДОСКРОЛЛ */
 .about-mobile-flex {
     display: flex;
     flex-direction: column;
-    height: auto !important;
+    height: 100%;
     justify-content: flex-start !important;
-    padding-top: 5px !important;
+    padding-top: 2px !important;
 }
 
 .about-mobile-flex h1,
 .about-mobile-flex h2,
 .about-mobile-flex .section-title {
-    margin-top: 5px !important;
-    margin-bottom: 10px !important;
+    margin-top: 2px !important;
+    margin-bottom: 6px !important;
 }
 
 .about-main-row {
-    flex: none !important;
+    flex: 1;
     display: flex;
     flex-direction: column !important;
     justify-content: flex-start !important;
-    gap: 8px !important;
-    height: auto !important;
+    gap: 4px !important;
 }
 
 .school-desc {
-    font-size: 0.85rem !important;
-    line-height: 1.3;
-    margin-bottom: 5px !important;
+    font-size: 0.82rem !important; /* Чуть уменьшили для плотности */
+    line-height: 1.25;
+    margin-bottom: 4px !important;
 }
 
 .about-img-container {
     display: block !important;
     width: 100%;
     text-align: center !important;
-    margin-top: 5px !important;
+    margin-top: 2px !important;
 }
 
+/* Обрезаем картинку снизу за счет фиксированной высоты и object-fit */
 .school-promo-img {
-    height: auto !important;
-    max-height: 160px !important;
-    width: 95% !important;
-    max-width: 340px !important;
+    height: 105px !important; /* Уменьшенная высота, чтобы не выталкивать контент */
+    width: 100% !important;
+    max-width: 290px !important;
     object-fit: cover;
+    object-position: center top; /* Держит фокус на лицах, подрезая низ */
     border-radius: 12px;
     display: inline-block;
 }
 
+/* ПОДПИСЬ ТРЕНЕРЫ КУРСИВОМ И МЕЛКИМ ШРИФТОМ */
 .coaches-title {
-    font-size: 1.1rem !important;
+    font-size: 0.8rem !important; /* Мелкий размер */
+    font-style: italic !important; /* Курсив */
+    font-weight: 600 !important;
     text-align: center !important;
-    margin-top: 10px !important;
-    margin-bottom: 5px !important;
+    margin-top: 4px !important;
+    margin-bottom: 0px !important;
     width: 100% !important;
-    font-weight: 800 !important;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    text-transform: none !important; /* Отключен верхний регистр */
+    letter-spacing: normal !important;
 }
 
 .coach-list {
-    font-size: 0.85rem !important;
-    line-height: 1.3;
+    font-size: 0.8rem !important;
+    line-height: 1.2;
     text-align: center !important;
     margin-bottom: 0 !important;
 }
@@ -262,19 +263,19 @@ h1, h2, h3, .section-title, .navbar-brand {
     display: flex !important;
     flex-direction: column !important;
     height: auto !important;
-    padding-top: 10px !important;
-    padding-bottom: 15px !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
     box-sizing: border-box !important;
 }
 
 .mobile-contact-layout h2,
 .mobile-contact-layout .section-title {
     margin-top: 0 !important;
-    margin-bottom: 15px !important;
+    margin-bottom: 10px !important;
 }
 
 .contact-item-compact {
-    margin-bottom: 15px !important;
+    margin-bottom: 10px !important;
     text-align: center !important;
 }
 
@@ -283,24 +284,24 @@ h1, h2, h3, .section-title, .navbar-brand {
     flex-direction: row !important;
     justify-content: space-around !important;
     gap: 10px !important;
-    margin-bottom: 15px !important;
+    margin-bottom: 10px !important;
     padding-left: 5px !important;
     padding-right: 5px !important;
 }
 
 .contact-label-compact {
-    font-size: 0.85rem !important;
+    font-size: 0.8rem !important;
     font-weight: 700 !important;
     color: #2d3748 !important;
     text-transform: none !important;
-    margin-bottom: 4px !important;
+    margin-bottom: 2px !important;
     display: block !important;
 }
 
 .contact-value-compact {
-    font-size: 0.9rem !important;
+    font-size: 0.85rem !important;
     font-weight: 400 !important;
-    line-height: 1.3 !important;
+    line-height: 1.2 !important;
     color: #4a5568 !important;
     display: block !important;
 }
@@ -315,9 +316,9 @@ h1, h2, h3, .section-title, .navbar-brand {
     flex-direction: row !important;
     flex-wrap: nowrap !important;
     justify-content: center !important;
-    gap: 8px !important;
-    margin-top: 10px !important;
-    margin-bottom: 20px !important;
+    gap: 6px !important;
+    margin-top: 5px !important;
+    margin-bottom: 15px !important;
     width: 100% !important;
 }
 
@@ -326,9 +327,9 @@ h1, h2, h3, .section-title, .navbar-brand {
     align-items: center !important;
     justify-content: center !important;
     flex: 1 1 auto !important;
-    padding: 8px 12px !important;
+    padding: 6px 10px !important;
     border-radius: 8px !important;
-    font-size: 0.8rem !important;
+    font-size: 0.75rem !important;
     font-weight: 700 !important;
     text-decoration: none !important;
     white-space: nowrap !important;
@@ -339,7 +340,7 @@ h1, h2, h3, .section-title, .navbar-brand {
 .btn-social-sm svg,
 .btn-social-sm span:not(.text-nowrap) {
     color: #ffffff !important;
-    font-size: 0.9rem !important;
+    font-size: 0.85rem !important;
     display: inline-block !important;
     line-height: 1 !important;
     margin-right: 4px !important;
@@ -359,12 +360,12 @@ h1, h2, h3, .section-title, .navbar-brand {
 .btn-whatsapp { background-color: #25D366; }
 
 .map-container-compact {
-    height: 190px !important;
+    height: 160px !important; /* Уменьшили карту для надежности */
     width: 100% !important;
     border-radius: 14px !important;
     overflow: hidden !important;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
-    margin-top: 5px !important;
+    margin-top: 2px !important;
 }
 
 .btn-custom-warning {
@@ -390,12 +391,12 @@ h1, h2, h3, .section-title, .navbar-brand {
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
-    padding: 15px 12px;
+    padding: 12px 10px;
     background-color: #ffffff !important;
 }
 
 .stylish-card h2 {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     font-weight: 800;
 }
 
@@ -408,18 +409,18 @@ h1, h2, h3, .section-title, .navbar-brand {
 }
 
 .form-label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
     color: #555555;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 .form-control {
     border: 1px solid #cbd5e0;
     border-radius: 6px;
-    padding: 8px 12px;
-    font-size: 0.9rem;
+    padding: 6px 10px;
+    font-size: 0.85rem;
 }
 
 .form-wrapper {
@@ -432,7 +433,7 @@ h1, h2, h3, .section-title, .navbar-brand {
 
 .scroll-hint-wrapper {
     position: absolute;
-    bottom: 25px !important;
+    bottom: 15px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     display: flex;
@@ -451,18 +452,18 @@ h1, h2, h3, .section-title, .navbar-brand {
     justify-content: center !important;
     gap: 12px !important;
     width: 100% !important;
-    margin: 15px auto 0 auto !important;
-    font-size: 1.1rem !important;
+    margin: 10px auto 0 auto !important;
+    font-size: 1rem !important;
     font-weight: 800 !important;
     color: #000000 !important;
     text-align: center !important;
 }
 
 .scroll-hint-wrapper .scroll-hint-text {
-    font-size: 0.9rem !important;
+    font-size: 0.85rem !important;
     font-weight: 600 !important;
     color: #ffc107 !important;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     max-width: 300px;
     text-shadow: none !important;
     opacity: 1 !important;
@@ -487,13 +488,13 @@ h1, h2, h3, .section-title, .navbar-brand {
 }
 
 .scroll-arrow {
-    width: 14px !important;
-    height: 14px !important;
+    width: 12px !important;
+    height: 12px !important;
     border-right: 3px solid #ffc107 !important;
     border-bottom: 3px solid #ffc107 !important;
     transform: rotate(45deg);
     animation: pulse-arrow 2s infinite;
-    margin: 8px auto 0 auto !important;
+    margin: 6px auto 0 auto !important;
     filter: none !important;
 }
 
@@ -515,15 +516,14 @@ h1, h2, h3, .section-title, .navbar-brand {
 
 footer.bg-dark, footer.bg-dark p, body > footer, body > footer p {
     color: #ffffff !important;
-    font-size: 0.9rem !important;
+    font-size: 0.85rem !important;
     font-weight: 500 !important;
     opacity: 1 !important;
 }
 
+/* Фиксация доскролла по нижней грани футера */
 #contacts.screen-section {
-    justify-content: flex-start !important;
+    justify-content: space-between !important;
     padding-bottom: 0 !important;
-    scroll-snap-align: none !important;
-    height: auto !important;
-    min-height: 100vh !important;
+    scroll-snap-align: end !important;
 }
