@@ -3,6 +3,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow: hidden; /* Блокируем стандартный скролл, доверяя его контейнеру */
+    overscroll-behavior-y: none;
 }
 
 body, .scroll-container {
@@ -45,11 +46,20 @@ h1, h2, h3, .section-title, .navbar-brand {
 
 /* ЖЕСТКИЙ ПОСТРАНИЧНЫЙ ДОСКРОЛЛ ДЛЯ МОБИЛЬНЫХ */
 .scroll-container {
-    height: calc(100vh - 48px);
+    /* ФИКС: Используем 100vh вместо calc, чтобы контейнер изначально имел жесткие границы, 
+       а внутренний паддинг/маржин компенсировал шапку */
+    height: 100vh !important; 
+    height: -webkit-fill-available !important; /* Корректно определяет высоту на iOS Safari с учетом панелей */
+    
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+
+    /* ФИКС: Позволяет контейнеру сразу перехватывать жесты скролла и не ждать 'клика' */
+    touch-action: pan-y; 
+    overscroll-behavior-y: contain;
+
     scroll-padding-top: 105px !important; /* Учитывает двухстрочную шапку */
 }
 
