@@ -1,7 +1,8 @@
 html, body {
-    height: 100%;
+    height: auto !important;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 body, .scroll-container {
@@ -42,23 +43,25 @@ h1, h2, h3, .section-title, .navbar-brand {
     background-color: transparent !important;
 }
 
-
+/* ГАРАНТИРОВАННОЕ ОТКЛЮЧЕНИЕ ФИКСАЦИИ ЭКРАНОВ И СКРОЛЛ-СНЭПА ДЛЯ МОБИЛЬНЫХ */
 .scroll-container {
-    height: calc(100vh - 48px);
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
+    height: auto !important;
+    overflow-y: visible !important;
+    scroll-snap-type: none !important;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
 }
 
+/* Секции свободно тянутся под размер контента на смартфонах */
 .screen-section {
-    height: calc(100vh - 48px);
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
+    min-height: calc(100vh - 48px) !important;
+    height: auto !important;
+    scroll-snap-align: none !important;
+    scroll-snap-stop: none !important;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 15px 0;
+    padding: 30px 0 !important;
     position: relative;
     box-sizing: border-box;
 }
@@ -193,7 +196,7 @@ h1, h2, h3, .section-title, .navbar-brand {
 .about-mobile-flex {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: auto !important;
     justify-content: flex-start !important;
     padding-top: 5px !important;
 }
@@ -206,11 +209,12 @@ h1, h2, h3, .section-title, .navbar-brand {
 }
 
 .about-main-row {
-    flex: 1;
+    flex: none !important;
     display: flex;
     flex-direction: column !important;
     justify-content: flex-start !important;
     gap: 8px !important;
+    height: auto !important;
 }
 
 .school-desc {
@@ -228,22 +232,23 @@ h1, h2, h3, .section-title, .navbar-brand {
 
 .school-promo-img {
     height: auto !important;
-    max-height: 110px !important;
-    width: auto !important;
-    max-width: 85% !important;
+    max-height: 160px !important;
+    width: 95% !important;
+    max-width: 340px !important;
     object-fit: cover;
     border-radius: 12px;
     display: inline-block;
 }
 
 .coaches-title {
-    font-size: 0.9rem !important;
+    font-size: 1.1rem !important;
     text-align: center !important;
-    margin-top: 2px !important;
-    margin-bottom: 2px !important;
+    margin-top: 10px !important;
+    margin-bottom: 5px !important;
     width: 100% !important;
-    font-weight: 400 !important;
-    font-style: italic !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .coach-list {
@@ -516,7 +521,9 @@ footer.bg-dark, footer.bg-dark p, body > footer, body > footer p {
 }
 
 #contacts.screen-section {
-    justify-content: space-between !important;
+    justify-content: flex-start !important;
     padding-bottom: 0 !important;
-    scroll-snap-align: end !important;
+    scroll-snap-align: none !important;
+    height: auto !important;
+    min-height: 100vh !important;
 }
