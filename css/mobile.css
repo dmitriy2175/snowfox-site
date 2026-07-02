@@ -50,6 +50,8 @@ h1, h2, h3, .section-title, .navbar-brand {
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+
+   scroll-padding-top: 96px !important;
 }
 
 .screen-section {
@@ -64,7 +66,7 @@ h1, h2, h3, .section-title, .navbar-brand {
     box-sizing: border-box;
     
     /* МАГИЯ ДЛЯМЕНЮ: сдвигает точку остановки скролла вниз на высоту шапки */
-    scroll-margin-top: 96px !important;
+    scroll-margin-top: 0px !important;
 }
 
 .navbar-compact-wrapper {
