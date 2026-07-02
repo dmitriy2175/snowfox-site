@@ -149,14 +149,17 @@
         text-align: right !important;
     }
 
+    /* Исправленная высота контейнера для десктопов */
     .scroll-container,
     .screen-section {
         height: calc(100vh - 62px) !important;
     }
 
     #contacts.screen-section {
-        justify-content: center !important;
-        padding-top: 40px !important;
+        justify-content: space-between !important; 
+        padding-top: 20px !important;
+        padding-bottom: 0 !important; 
+        scroll-snap-align: end !important; 
     }
 
     .mobile-contact-layout {
