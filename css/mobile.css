@@ -379,7 +379,7 @@ h1, h2, h3, .section-title, .navbar-brand {
 
 /* ФИКСИРОВАННАЯ ВЫСОТА КАРТЫ ДЛЯ ПРЕДОТВРАЩЕНИЯ ЛИШНЕГО СКРОЛЛА */
 .map-container-compact {
-    height: 140px !important; 
+    height: 210px !important; 
     width: 100% !important;
     border-radius: 14px !important;
     overflow: hidden !important;
