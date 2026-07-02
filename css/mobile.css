@@ -18,6 +18,16 @@ body, .scroll-container {
     background-repeat: repeat !important;
 }
 
+/* ФИКС ШАПКИ: Делаем её фиксированной, чтобы она не ломала расчёт высот при старте */
+nav.navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 96px !important; /* Четко фиксируем высоту двухстрочной мобильной шапки */
+    z-index: 9999 !important;
+}
+
 p, span, li, .school-desc, .coach-list, .contact-value-compact {
     color: #000000 !important;
     font-family: 'Nunito', sans-serif !important;
@@ -46,25 +56,21 @@ h1, h2, h3, .section-title, .navbar-brand {
 
 /* ЖЕСТКИЙ ПОСТРАНИЧНЫЙ ДОСКРОЛЛ ДЛЯ МОБИЛЬНЫХ */
 .scroll-container {
-    /* ФИКС: Используем 100vh вместо calc, чтобы контейнер изначально имел жесткие границы, 
-       а внутренний паддинг/маржин компенсировал шапку */
-    height: 100vh !important; 
-    height: -webkit-fill-available !important; /* Корректно определяет высоту на iOS Safari с учетом панелей */
-    
+    height: calc(100vh - 96px) !important; /* Идеальный чистый остаток экрана под шапкой */
+    margin-top: 96px !important;           /* Смещаем вниз ровно на высоту фиксированной шапки */
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-
-    /* ФИКС: Позволяет контейнеру сразу перехватывать жесты скролла и не ждать 'клика' */
-    touch-action: pan-y; 
+    touch-action: pan-y;
     overscroll-behavior-y: contain;
-
-    scroll-padding-top: 105px !important; /* Учитывает двухстрочную шапку */
+    
+    /* Убираем лишний scroll-padding, так как контейнер теперь физически находится ниже шапки */
+    scroll-padding-top: 0px !important; 
 }
 
 .screen-section {
-    height: calc(100vh - 48px);
+    height: calc(100vh - 96px) !important; /* Высота секции строго равна рабочей зоне */
     scroll-snap-align: start;
     scroll-snap-stop: always;
     display: flex;
@@ -208,7 +214,7 @@ h1, h2, h3, .section-title, .navbar-brand {
     display: flex;
     flex-direction: column;
     height: 100% !important;
-    max-height: calc(100vh - 68px) !important;
+    max-height: calc(100vh - 110px) !important;
     justify-content: space-between !important;
     padding-top: 2px !important;
     padding-bottom: 2px !important;
@@ -244,18 +250,16 @@ h1, h2, h3, .section-title, .navbar-brand {
     margin-top: 5px !important;
 }
 
-/* КАРДИНАЛЬНОЕ ОБРЕЗАНИЕ КАРТИНКИ (ОБРЕЗКА ТОЛЬКО СНИЗУ) */
 .school-promo-img {
     height: 175px !important;
     width: 95% !important;
     max-width: 360px !important;
     object-fit: cover !important;
-    object-position: center top !important; /* Удерживает верх, отсекает низ */
+    object-position: center top !important;
     border-radius: 14px !important;
     display: inline-block !important;
 }
 
-/* ПОДПИСЬ ТРЕНЕРЫ КУРСИВОМ И МЕЛКИМ ШРИФТОМ */
 .coaches-title {
     font-size: 0.8rem !important;
     font-style: italic !important;
@@ -275,11 +279,11 @@ h1, h2, h3, .section-title, .navbar-brand {
 
 /* ОПТИМИЗАЦИЯ СЕКЦИИ КОНТАКТОВ И БЛОКИРОВКА СЛИШКОМ ДЛИННОГО СКРОЛЛА */
 #contacts.screen-section {
-    justify-content: space-between !important; /* Выталкивает футер строго вниз */
+    justify-content: space-between !important;
     padding-top: 10px !important;
     padding-bottom: 0 !important;
-    scroll-snap-align: end !important; /* Закрепляет скролл ровно по нижней линии футера */
-    height: calc(100vh - 48px) !important;
+    scroll-snap-align: end !important; /* Жестко фиксирует скролл по нижней линии футера */
+    height: calc(100vh - 96px) !important;
     box-sizing: border-box !important;
     overflow: hidden !important;
 }
@@ -287,11 +291,11 @@ h1, h2, h3, .section-title, .navbar-brand {
 .mobile-contact-layout {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important; /* Центрирует текстовые блоки и карту */
-    flex: 1 !important; /* Занимает всю свободную высоту до футера */
+    justify-content: space-between !important;
+    flex: 1 !important;
     width: 100% !important;
-    padding-top: 2px !important;
-    padding-bottom: 5px !important;
+    padding-top: 0px !important;
+    padding-bottom: 2px !important;
     margin-bottom: 0 !important;
     box-sizing: border-box !important;
 }
@@ -299,11 +303,11 @@ h1, h2, h3, .section-title, .navbar-brand {
 .mobile-contact-layout h2,
 .mobile-contact-layout .section-title {
     margin-top: 0 !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 4px !important;
 }
 
 .contact-item-compact {
-    margin-bottom: 6px !important;
+    margin-bottom: 4px !important;
     text-align: center !important;
 }
 
@@ -312,7 +316,7 @@ h1, h2, h3, .section-title, .navbar-brand {
     flex-direction: row !important;
     justify-content: space-around !important;
     gap: 10px !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 4px !important;
     padding-left: 5px !important;
     padding-right: 5px !important;
 }
@@ -345,8 +349,8 @@ h1, h2, h3, .section-title, .navbar-brand {
     flex-wrap: nowrap !important;
     justify-content: center !important;
     gap: 4px !important;
-    margin-top: 4px !important;
-    margin-bottom: 8px !important;
+    margin-top: 2px !important;
+    margin-bottom: 4px !important;
     width: 100% !important;
 }
 
@@ -387,14 +391,14 @@ h1, h2, h3, .section-title, .navbar-brand {
 .btn-telegram { background-color: #24A1DE; }
 .btn-whatsapp { background-color: #25D366; }
 
-/* ФИКСИРОВАННАЯ ВЫСОТА КАРТЫ ДЛЯ ПРЕДОТВРАЩЕНИЯ ЛИШНЕГО СКРОЛЛА */
+/* КАРТА УВЕЛИЧЕНА В 1.5 РАЗА КОРРЕКТНО */
 .map-container-compact {
-    height: 210px !important; 
+    height: 210px !important;
     width: 100% !important;
     border-radius: 14px !important;
     overflow: hidden !important;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
-    margin-top: 2px !important;
+    margin-top: 5px !important;
 }
 
 .btn-custom-warning {
@@ -517,13 +521,13 @@ h1, h2, h3, .section-title, .navbar-brand {
 }
 
 .scroll-arrow {
-    width: 12px !important;
-    height: 12px !important;
+    width: 14px !important;
+    height: 14px !important;
     border-right: 3px solid #ffc107 !important;
     border-bottom: 3px solid #ffc107 !important;
     transform: rotate(45deg);
     animation: pulse-arrow 2s infinite;
-    margin: 6px auto 0 auto !important;
+    margin: 8px auto 0 auto !important;
     filter: none !important;
 }
 
