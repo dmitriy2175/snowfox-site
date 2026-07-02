@@ -32,7 +32,7 @@ h1, h2, h3, .section-title, .navbar-brand {
 }
 
 .section-title {
-    font-size: 1.4rem; /* Слегка уменьшили для экономии места */
+    font-size: 1.4rem;
 }
 
 .screen-section,
@@ -50,8 +50,7 @@ h1, h2, h3, .section-title, .navbar-brand {
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-
-   scroll-padding-top: 105px !important;
+    scroll-padding-top: 105px !important; /* Учитывает двухстрочную шапку */
 }
 
 .screen-section {
@@ -64,8 +63,6 @@ h1, h2, h3, .section-title, .navbar-brand {
     padding: 10px 0 !important;
     position: relative;
     box-sizing: border-box;
-    
-    /* МАГИЯ ДЛЯМЕНЮ: сдвигает точку остановки скролла вниз на высоту шапки */
     scroll-margin-top: 0px !important;
 }
 
@@ -201,11 +198,11 @@ h1, h2, h3, .section-title, .navbar-brand {
     display: flex;
     flex-direction: column;
     height: 100% !important;
-    max-height: calc(100vh - 68px) !important; /* Строгое ограничение под размер экрана */
+    max-height: calc(100vh - 68px) !important;
     justify-content: space-between !important;
     padding-top: 2px !important;
     padding-bottom: 2px !important;
-    overflow: hidden !important; /* Предотвращаем внутренний скролл */
+    overflow: hidden !important;
 }
 
 .about-mobile-flex h1,
@@ -213,7 +210,7 @@ h1, h2, h3, .section-title, .navbar-brand {
 .about-mobile-flex .section-title {
     margin-top: 2px !important;
     margin-bottom: 4px !important;
-    font-size: 1.3rem !important; /* Компактный размер заголовка */
+    font-size: 1.3rem !important;
 }
 
 .about-main-row {
@@ -225,7 +222,7 @@ h1, h2, h3, .section-title, .navbar-brand {
 }
 
 .school-desc {
-    font-size: 0.78rem !important; /* Уменьшили для высокой плотности */
+    font-size: 0.78rem !important;
     line-height: 1.25;
     margin-bottom: 4px !important;
 }
@@ -237,13 +234,13 @@ h1, h2, h3, .section-title, .navbar-brand {
     margin-top: 5px !important;
 }
 
-/* КАРДИНАЛЬНОЕ ОБРЕЗАНИЕ КАРТИНКИ СТРОГО КАК НА СКРИНШОТЕ */
+/* КАРДИНАЛЬНОЕ ОБРЕЗАНИЕ КАРТИНКИ (ОБРЕЗКА ТОЛЬКО СНИЗУ) */
 .school-promo-img {
-    height: 175px !important; /* Увеличили высоту в 2.5 раза, чтобы тренеров было хорошо видно */
-    width: 95% !important;    /* Сделали чуть шире по бокам, чтобы картинка смотрелась гармонично */
+    height: 175px !important;
+    width: 95% !important;
     max-width: 360px !important;
     object-fit: cover !important;
-    object-position: center top !important; /* Ровняет картинку по верхнему краю, всё лишнее режется снизу */
+    object-position: center top !important; /* Удерживает верх, отсекает низ */
     border-radius: 14px !important;
     display: inline-block !important;
 }
@@ -263,26 +260,40 @@ h1, h2, h3, .section-title, .navbar-brand {
 }
 
 .coach-list {
-    display: none !important; /* Полностью скрываем список фамилий, чтобы всё влезло */
+    display: none !important;
+}
+
+/* ОПТИМИЗАЦИЯ СЕКЦИИ КОНТАКТОВ И БЛОКИРОВКА СЛИШКОМ ДЛИННОГО СКРОЛЛА */
+#contacts.screen-section {
+    justify-content: space-between !important; /* Выталкивает футер строго вниз */
+    padding-top: 10px !important;
+    padding-bottom: 0 !important;
+    scroll-snap-align: end !important; /* Закрепляет скролл ровно по нижней линии футера */
+    height: calc(100vh - 48px) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
 }
 
 .mobile-contact-layout {
     display: flex !important;
     flex-direction: column !important;
-    height: auto !important;
-    padding-top: 5px !important;
+    justify-content: center !important; /* Центрирует текстовые блоки и карту */
+    flex: 1 !important; /* Занимает всю свободную высоту до футера */
+    width: 100% !important;
+    padding-top: 2px !important;
     padding-bottom: 5px !important;
+    margin-bottom: 0 !important;
     box-sizing: border-box !important;
 }
 
 .mobile-contact-layout h2,
 .mobile-contact-layout .section-title {
     margin-top: 0 !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 6px !important;
 }
 
 .contact-item-compact {
-    margin-bottom: 10px !important;
+    margin-bottom: 6px !important;
     text-align: center !important;
 }
 
@@ -291,7 +302,7 @@ h1, h2, h3, .section-title, .navbar-brand {
     flex-direction: row !important;
     justify-content: space-around !important;
     gap: 10px !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 6px !important;
     padding-left: 5px !important;
     padding-right: 5px !important;
 }
@@ -301,7 +312,7 @@ h1, h2, h3, .section-title, .navbar-brand {
     font-weight: 700 !important;
     color: #2d3748 !important;
     text-transform: none !important;
-    margin-bottom: 2px !important;
+    margin-bottom: 1px !important;
     display: block !important;
 }
 
@@ -323,9 +334,9 @@ h1, h2, h3, .section-title, .navbar-brand {
     flex-direction: row !important;
     flex-wrap: nowrap !important;
     justify-content: center !important;
-    gap: 6px !important;
-    margin-top: 5px !important;
-    margin-bottom: 15px !important;
+    gap: 4px !important;
+    margin-top: 4px !important;
+    margin-bottom: 8px !important;
     width: 100% !important;
 }
 
@@ -334,7 +345,7 @@ h1, h2, h3, .section-title, .navbar-brand {
     align-items: center !important;
     justify-content: center !important;
     flex: 1 1 auto !important;
-    padding: 6px 10px !important;
+    padding: 5px 8px !important;
     border-radius: 8px !important;
     font-size: 0.75rem !important;
     font-weight: 700 !important;
@@ -366,8 +377,9 @@ h1, h2, h3, .section-title, .navbar-brand {
 .btn-telegram { background-color: #24A1DE; }
 .btn-whatsapp { background-color: #25D366; }
 
+/* ФИКСИРОВАННАЯ ВЫСОТА КАРТЫ ДЛЯ ПРЕДОТВРАЩЕНИЯ ЛИШНЕГО СКРОЛЛА */
 .map-container-compact {
-    height: 160px !important; /* Уменьшили карту для надежности */
+    height: 140px !important; 
     width: 100% !important;
     border-radius: 14px !important;
     overflow: hidden !important;
@@ -526,11 +538,4 @@ footer.bg-dark, footer.bg-dark p, body > footer, body > footer p {
     font-size: 0.85rem !important;
     font-weight: 500 !important;
     opacity: 1 !important;
-}
-
-/* Фиксация доскролла по нижней грани футера */
-#contacts.screen-section {
-    justify-content: space-between !important;
-    padding-bottom: 0 !important;
-    scroll-snap-align: end !important;
 }
