@@ -65,8 +65,8 @@ h1, h2, h3, .section-title, .navbar-brand {
     touch-action: pan-y;
     overscroll-behavior-y: contain;
     
-    /* ФИКС НАВИГАЦИИ: Указываем отступ сверху, чтобы при клике из меню секции не улетали под шапку */
-    scroll-padding-top: 96px !important; 
+    /* ИСПРАВЛЕНИЕ: Убираем лишний паддинг, чтобы убрать огромный отступ сверху при клике */
+    scroll-padding-top: 0px !important; 
 }
 
 .screen-section {
@@ -80,8 +80,8 @@ h1, h2, h3, .section-title, .navbar-brand {
     position: relative;
     box-sizing: border-box;
     
-    /* ФИКС НАВИГАЦИИ: Корректируем точку приземления секции для браузерного перехода по ссылкам-якорям */
-    scroll-margin-top: 96px !important;
+    /* ИСПРАВЛЕНИЕ: Обнуляем маржин скролла, так как контейнер уже находится ниже шапки */
+    scroll-margin-top: 0px !important;
 }
 
 .navbar-compact-wrapper {
@@ -288,7 +288,7 @@ h1, h2, h3, .section-title, .navbar-brand {
     height: calc(100vh - 96px) !important;
     box-sizing: border-box !important;
     overflow: hidden !important;
-    scroll-margin-top: 96px !important;
+    scroll-margin-top: 0px !important;
 }
 
 .mobile-contact-layout {
