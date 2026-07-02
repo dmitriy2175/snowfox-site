@@ -56,7 +56,7 @@ h1, h2, h3, .section-title, .navbar-brand {
 
 /* ЖЕСТКИЙ ПОСТРАНИЧНЫЙ ДОСКРОЛЛ ДЛЯ МОБИЛЬНЫХ */
 .scroll-container {
-    height: calc(100vh - 96px) !important; /* Идеальный чистый остаток экрана под шапкой */
+    height: calc(100vh - 96px) !important; /* Чистый остаток экрана под шапкой */
     margin-top: 96px !important;           /* Смещаем вниз ровно на высоту фиксированной шапки */
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
@@ -65,8 +65,8 @@ h1, h2, h3, .section-title, .navbar-brand {
     touch-action: pan-y;
     overscroll-behavior-y: contain;
     
-    /* Убираем лишний scroll-padding, так как контейнер теперь физически находится ниже шапки */
-    scroll-padding-top: 0px !important; 
+    /* ФИКС НАВИГАЦИИ: Указываем отступ сверху, чтобы при клике из меню секции не улетали под шапку */
+    scroll-padding-top: 96px !important; 
 }
 
 .screen-section {
@@ -79,7 +79,9 @@ h1, h2, h3, .section-title, .navbar-brand {
     padding: 10px 0 !important;
     position: relative;
     box-sizing: border-box;
-    scroll-margin-top: 0px !important;
+    
+    /* ФИКС НАВИГАЦИИ: Корректируем точку приземления секции для браузерного перехода по ссылкам-якорям */
+    scroll-margin-top: 96px !important;
 }
 
 .navbar-compact-wrapper {
@@ -277,25 +279,26 @@ h1, h2, h3, .section-title, .navbar-brand {
     display: none !important;
 }
 
-/* ОПТИМИЗАЦИЯ СЕКЦИИ КОНТАКТОВ И БЛОКИРОВКА СЛИШКОМ ДЛИННОГО СКРОЛЛА */
+/* ОПТИМИЗАЦИЯ СЕКЦИИ КОНТАКТОВ И УСТРАНЕНИЕ БОЛЬШИХ ОТСТУПОВ */
 #contacts.screen-section {
-    justify-content: flex-start!important;
+    justify-content: flex-start !important; /* Элементы плотно собираются сверху вниз */
     padding-top: 10px !important;
     padding-bottom: 0 !important;
-    scroll-snap-align: end !important; /* Жестко фиксирует скролл по нижней линии футера */
+    scroll-snap-align: start !important; /* Синхронизировано со всеми остальными секциями */
     height: calc(100vh - 96px) !important;
     box-sizing: border-box !important;
     overflow: hidden !important;
+    scroll-margin-top: 96px !important;
 }
 
 .mobile-contact-layout {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-start !important;
+    justify-content: flex-start !important; /* Контент собирается компактно без лишнего растягивания */
     flex: 1 !important;
     width: 100% !important;
     padding-top: 0px !important;
-    padding-bottom: 2px !important;
+    padding-bottom: 0px !important;
     margin-bottom: 0 !important;
     box-sizing: border-box !important;
 }
@@ -303,7 +306,7 @@ h1, h2, h3, .section-title, .navbar-brand {
 .mobile-contact-layout h2,
 .mobile-contact-layout .section-title {
     margin-top: 0 !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 8px !important; /* Уменьшенный аккуратный отступ */
 }
 
 .contact-item-compact {
@@ -316,7 +319,7 @@ h1, h2, h3, .section-title, .navbar-brand {
     flex-direction: row !important;
     justify-content: space-around !important;
     gap: 10px !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 8px !important; /* Сближает контакты с блоком соцсетей */
     padding-left: 5px !important;
     padding-right: 5px !important;
 }
@@ -349,8 +352,8 @@ h1, h2, h3, .section-title, .navbar-brand {
     flex-wrap: nowrap !important;
     justify-content: center !important;
     gap: 4px !important;
-    margin-top: 2px !important;
-    margin-bottom: 8px !important;
+    margin-top: 0px !important;
+    margin-bottom: 8px !important; /* Минимальный зазор перед картой */
     width: 100% !important;
 }
 
@@ -391,14 +394,14 @@ h1, h2, h3, .section-title, .navbar-brand {
 .btn-telegram { background-color: #24A1DE; }
 .btn-whatsapp { background-color: #25D366; }
 
-/* КАРТА УВЕЛИЧЕНА В 1.5 РАЗА КОРРЕКТНО */
+/* КАРТА ПРИЖАТА ВПЛОТНУЮ К КНОПКАМ СОЦСЕТЕЙ И УВЕЛИЧЕНА В 1.5 РАЗА */
 .map-container-compact {
-    height: 210px !important;
+    height: 210px !important; /* Размер увеличен в 1.5 раза */
     width: 100% !important;
     border-radius: 14px !important;
     overflow: hidden !important;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
-    margin-top: 5px !important;
+    margin-top: 0px !important; /* Убран пустой зазор, карта прижата к кнопкам */
 }
 
 .btn-custom-warning {
