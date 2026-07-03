@@ -130,7 +130,7 @@ h1, h2, h3, .section-title, .navbar-brand {
 
 .hero-section {
     background: linear-gradient(rgba(20, 35, 55, 0.75), rgba(20, 35, 55, 0.75)),
-                url('../images/main.jpg') no-repeat center center;
+                url('../images/main.webp') no-repeat center center;
     background-size: cover;
     justify-content: center !important;
 }
