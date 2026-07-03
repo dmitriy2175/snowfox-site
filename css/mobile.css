@@ -76,12 +76,18 @@
     }
 
     .school-promo-img {
-        max-height: 150px;
-        width: 95%;
-        max-width: 360px;
-        object-fit: cover;
-        border-radius: 12px;
-        display: inline-block;
+        width: 95% !important;
+        max-width: 360px !important;
+        
+        /* Уменьшаем высоту примерно в 1.5 раза (было 150px) */
+        height: 110px !important; 
+        
+        /* Фиксируем верхнюю часть изображения и аккуратно кадрируем (обрезаем снизу) */
+        object-fit: cover !important;
+        object-position: top !important; 
+        
+        border-radius: 12px !important;
+        display: inline-block !important;
     }
 
     .coaches-title {
