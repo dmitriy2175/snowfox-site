@@ -18,9 +18,10 @@
         
         /* Смещаем контент секции вниз ровно под высоту навбара */
         padding-top: 60px !important; 
+
+        scroll-margin-top: 60px !important;
         
         /* Сбрасываем старые маргины, чтобы они не ломали математику браузера */
-        scroll-margin-top: 0px !important;
         scroll-snap-align: start !important; 
     }
 
