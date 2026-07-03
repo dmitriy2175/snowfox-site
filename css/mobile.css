@@ -4,16 +4,24 @@
    ========================================================================== */
 @media (max-width: 1023px) {
 
+    /* Чистим контейнер от конфликтующих мобильных сдвигов */
     .scroll-container {
-        scroll-padding-top: 80px !important; 
+        scroll-padding-top: 0px !important; 
     }
 
+    /* Возвращаем секции честный размер экрана для идеального snap-скролла,
+       а отступ под навбар делаем через внутренний padding */
     .screen-section {
-        height: calc(100vh - 80px) !important;
-        min-height: calc(100vh - 80px) !important;
-        scroll-margin-top: 80px !important;
-        scroll-snap-align: start !important; /* Листание пальцем будет магнититься строго по верхней линии */
+        height: 100vh !important;
+        min-height: 100vh !important;
         box-sizing: border-box !important;
+        
+        /* Смещаем контент секции вниз ровно под высоту навбара */
+        padding-top: 60px !important; 
+        
+        /* Сбрасываем старые маргины, чтобы они не ломали математику браузера */
+        scroll-margin-top: 0px !important;
+        scroll-snap-align: start !important; 
     }
 
     #gallery.screen-section {
