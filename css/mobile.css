@@ -5,34 +5,63 @@
 @media (max-width: 1023px) {
 
     /* Чистим контейнер от конфликтующих мобильных сдвигов */
+
     .scroll-container {
+
         scroll-padding-top: 0px !important; 
+
     }
+
+
 
     /* Идеальный скролл пальцем: честные 100vh и сброшенный маргин */
+
     .screen-section {
+
         height: 100vh !important;
+
         min-height: 100vh !important;
+
         box-sizing: border-box !important;
+
         padding-top: 60px !important; /* Базовый внутренний отступ */
+
         
+
         scroll-margin-top: 0px !important;
+
         scroll-snap-align: start !important; 
+
     }
+
+
 
     /* ХИТРОСТЬ ДЛЯ НАВИГАЦИИ: когда на секцию переходят по ссылке (target),
+
        мы принудительно даем браузеру увеличенный отступ сверху, чтобы заголовки не прятались */
+
     .screen-section:target {
-        scroll-margin-top: 95px !important; /* Увеличь до 105px, если нужно еще больше отступа */
+
+        scroll-margin-top: 80px !important; /* Увеличь до 105px, если нужно еще больше отступа */
+
     }
 
+
+
     /* Специфичные настройки для галереи */
+
     #gallery.screen-section {
+
         padding-top: 60px !important;
+
         justify-content: flex-start !important;
+
     }
+
     #gallery.screen-section:target {
-        scroll-margin-top: 95px !important;
+
+        scroll-margin-top: 80px !important;
+
     }
 
     .scroll-gallery {
