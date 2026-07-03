@@ -4,29 +4,29 @@
    ========================================================================== */
 @media (max-width: 1023px) {
 
-    /* Чистим контейнер от конфликтующих мобильных сдвигов */
     .scroll-container {
         scroll-padding-top: 0px !important; 
     }
 
-    /* Возвращаем секции честный размер экрана для идеального snap-скролла,
-       а отступ под навбар делаем через внутренний padding */
+    /* Настройка мобильных секций:
+       Убираем scroll-margin, чтобы не ломать snap-скролл пальцем.
+       Вместо этого увеличиваем padding-top до 85px, чтобы заголовки не прятались под меню. */
     .screen-section {
         height: 100vh !important;
         min-height: 100vh !important;
         box-sizing: border-box !important;
         
-        /* Смещаем контент секции вниз ровно под высоту навбара */
-        padding-top: 80px !important; 
-
-        scroll-margin-top: 80px !important;
+        /* Увеличенный отступ гарантированно выводит заголовки из-под навбара */
+        padding-top: 85px !important; 
         
-        /* Сбрасываем старые маргины, чтобы они не ломали математику браузера */
+        /* Полностью сбрасываем маргины, возвращая идеальный скролл пальцем */
+        scroll-margin-top: 0px !important;
         scroll-snap-align: start !important; 
     }
 
+    /* Корректируем также отступ для секции галереи */
     #gallery.screen-section {
-        padding-top: 50px !important;
+        padding-top: 85px !important;
         justify-content: flex-start !important;
     }
 
