@@ -4,6 +4,10 @@
    ========================================================================== */
 @media (max-width: 1023px) {
 
+    .screen-section {
+        scroll-margin-top: 55px !important;
+    }
+
     #gallery.screen-section {
         padding-top: 50px !important;
         justify-content: flex-start !important;
