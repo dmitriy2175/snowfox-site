@@ -1,3 +1,300 @@
+/* ==========================================================================
+   БАЗОВЫЕ И ОБЩИЕ СТИЛИ (РАНЕЕ БЫЛИ В MOBILE.CSS)
+   ========================================================================== */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body, .scroll-container {
+    font-family: 'Nunito', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+    color: #000000 !important;
+    background-color: #eef4fa !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.9' stroke-width='4' stroke-linejoin='round'%3E%3Cpath d='M-5 15 L15 35 L35 15 L55 35 L75 15'/%3E%3Cpath d='M-5 45 L15 65 L35 45 L55 65 L75 45'/%3E%3Cpath d='M-5 -15 L15 5 L35 -15 L55 5 L75 -15'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-size: 60px 60px !important;
+    background-repeat: repeat !important;
+}
+
+p, span, li, .school-desc, .coach-list, .contact-value-compact {
+    color: #000000 !important;
+    font-family: 'Nunito', sans-serif !important;
+    font-weight: 800 !important;
+}
+
+h1, h2, h3, .section-title, .navbar-brand {
+    font-family: 'Nunito', sans-serif !important;
+    font-weight: 900 !important;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: #000000 !important;
+}
+
+.section-title {
+    font-size: 1.6rem;
+}
+
+.screen-section,
+.scroll-container .container,
+.scroll-container .row,
+.about-mobile-flex,
+.mobile-contact-layout {
+    background-color: transparent !important;
+}
+
+.scroll-container {
+    height: calc(100vh - 48px);
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.screen-section {
+    height: calc(100vh - 48px);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 15px 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.navbar-compact-wrapper {
+    display: flex;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.navbar-brand {
+    font-size: 1.1rem !important;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-right: 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+    color: #ffffff !important;
+}
+
+.navbar-brand h1,
+.navbar-brand span {
+    color: #ffffff !important;
+}
+
+.navbar-nav-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-around !important;
+}
+
+.navbar-nav-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.navbar-nav-scroll .navbar-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    justify-content: space-around !important;
+    width: 100%;
+    padding-bottom: 0;
+    margin: 0;
+}
+
+.navbar-nav-scroll .navbar-nav .nav-link,
+.navbar-nav-scroll .nav-link,
+.navbar-nav-scroll .nav-link span {
+    font-size: 0.85rem;
+    white-space: nowrap;
+    padding-right: 4px !important;
+    padding-left: 4px !important;
+    color: #ffffff !important;
+    flex: 1;
+    text-align: center !important;
+    font-weight: 800 !important;
+    transition: color 0.2s ease;
+}
+
+.navbar-nav-scroll .nav-link:hover {
+    color: #ffc107 !important;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(20, 35, 55, 0.75), rgba(20, 35, 55, 0.75)),
+                url('../images/main.jpg') no-repeat center center;
+    background-size: cover;
+    justify-content: center !important;
+}
+
+.hero-subtitle {
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+}
+
+.hero-title {
+    font-size: 2rem;
+    font-weight: 900 !important;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    color: #ffffff !important;
+}
+
+.hero-description {
+    max-width: 600px;
+    font-weight: 700 !important;
+    font-size: 0.95rem;
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+.scroll-hint-wrapper {
+    position: absolute;
+    bottom: 25px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    pointer-events: none;
+    width: 100% !important;
+    text-align: center !important;
+}
+
+.scroll-hint-text {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin: 15px auto 0 auto !important;
+    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+    color: #000000 !important;
+    text-align: center !important;
+}
+
+.scroll-hint-wrapper .scroll-hint-text {
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    color: #ffc107 !important;
+    margin-bottom: 6px;
+    max-width: 300px;
+    text-shadow: none !important;
+    opacity: 1 !important;
+    --bs-text-opacity: 1 !important;
+    display: block !important;
+}
+
+.arrow-yellow {
+    color: #ffc107 !important;
+    font-weight: 900 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    line-height: 1 !important;
+}
+
+.arrow-left {
+    animation: bounceLeft 2s infinite ease-in-out !important;
+}
+
+.arrow-right {
+    animation: bounceRight 2s infinite ease-in-out !important;
+}
+
+.scroll-arrow {
+    width: 14px !important;
+    height: 14px !important;
+    border-right: 3px solid #ffc107 !important;
+    border-bottom: 3px solid #ffc107 !important;
+    transform: rotate(45deg);
+    animation: pulse-arrow 2s infinite;
+    margin: 8px auto 0 auto !important;
+    filter: none !important;
+}
+
+@keyframes bounceLeft {
+    0%, 100% { transform: translateY(-3px) translateX(0); }
+    50%      { transform: translateY(-3px) translateX(-5px); }
+}
+
+@keyframes bounceRight {
+    0%, 100% { transform: translateY(-3px) translateX(0); }
+    50%      { transform: translateY(-3px) translateX(5px); }
+}
+
+@keyframes pulse-arrow {
+    0% { transform: rotate(45deg) translate(0, 0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: rotate(45deg) translate(6px, 6px); opacity: 0; }
+}
+
+footer.bg-dark, footer.bg-dark p, body > footer, body > footer p {
+    color: #ffffff !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    opacity: 1 !important;
+}
+
+.btn-social-sm {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    color: #ffffff !important;
+    transition: opacity 0.2s ease;
+}
+.btn-social-sm:hover {
+    color: #ffffff !important;
+    opacity: 0.85;
+}
+.btn-social-sm i, .btn-social-sm svg {
+    color: #ffffff !important;
+    margin-right: 5px !important;
+}
+.btn-vk { background-color: #0077FF !important; }
+.btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important; }
+.btn-tamtam { background: linear-gradient(135deg, #00C6FF 0%, #0072FF 50%, #9B51E0 100%) !important; }
+.btn-telegram { background-color: #24A1DE !important; }
+.btn-whatsapp { background-color: #25D366 !important; }
+
+
+.btn-custom-warning {
+    background-color: #ffc107 !important; /* Желтый цвет кнопки */
+    color: #1a1a1a !important;            /* Темно-серый цвет текста */
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 800 !important;
+    border: none !important;
+    transition: all 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+}
+
+/* Эффект при наведении курсора (ховер) */
+.btn-custom-warning:hover, 
+.btn-custom-warning:focus { 
+    background-color: #e0a800 !important; /* Чуть более темный желтый при наведении */
+    color: #1a1a1a !important;
+}
+
+/* ==========================================================================
+   СТИЛИ ДЛЯ КОМПЬЮТЕРОВ И НОУТБУКОВ (ПЕРЕКРЫВАЮТ МОБИЛЬНЫЕ)
+   ========================================================================== */
 @media (min-width: 1024px) {
     .hero-title {
         color: #ffffff !important;
@@ -79,7 +376,7 @@
         order: 2 !important;
         flex: 0 0 50% !important;
         max-width: 50% !important;
-        text-align: left !important;
+        text-align: right !important;
         margin-top: 65px !important;
     }
 
@@ -102,10 +399,14 @@
     .coaches-title {
         font-size: 1.3rem !important;
         font-weight: 400 !important;
-        margin-top: 5px !important;
+        margin-top: 15px !important;   /* Отступ сверху от фотографии */
         margin-bottom: 0px !important;
-        text-align: center !important;
+        text-align: center !important;  /* Выравнивание текста по центру */
+        width: 100% !important;         /* Растягиваем на всю ширину, чтобы текст центрировался корректно */
+        display: block !important;
+        font-style: italic !important;
     }
+
 
     .coach-list {
         align-items: flex-start !important;
@@ -149,17 +450,14 @@
         text-align: right !important;
     }
 
-    /* Исправленная высота контейнера для десктопов */
     .scroll-container,
     .screen-section {
         height: calc(100vh - 62px) !important;
     }
 
     #contacts.screen-section {
-        justify-content: space-between !important; 
-        padding-top: 20px !important;
-        padding-bottom: 0 !important; 
-        scroll-snap-align: end !important; 
+        justify-content: center !important;
+        padding-top: 40px !important;
     }
 
     .mobile-contact-layout {
@@ -290,6 +588,9 @@
     }
 }
 
+/* ==========================================================================
+   ПРОМЕЖУТОЧНЫЕ ЭКРАНЫ (ПЛАНШЕТЫ)
+   ========================================================================== */
 @media (min-width: 768px) and (max-width: 1023px) {
     .section-title { font-size: 2.2rem; }
     .hero-title { font-size: 3.5rem; }
