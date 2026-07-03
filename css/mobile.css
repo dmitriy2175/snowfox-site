@@ -259,4 +259,19 @@
         justify-content: center;
         width: 100%;
     }
+
+    .about-img-container .gallery-img {
+        width: 95% !important;
+        max-width: 360px !important;
+        
+        /* Уменьшаем высоту примерно в 1.5 раза для экономии места на экране */
+        height: 110px !important; 
+        
+        /* object-fit: cover обрезает лишнее, а object-position: top фиксирует верх */
+        object-fit: cover !important;
+        object-position: top !important; 
+        
+        border-radius: 12px !important;
+        display: inline-block !important;
+    }
 }
