@@ -18,7 +18,7 @@
         
         /* Делаем отступ внутри секции чуть больше (~85px), чтобы контент 
            физически никогда не мог заползти под навбар при любом типе навигации */
-        padding-top: 85px !important; 
+        padding-top: 75px !important; 
         
         /* Полностью убираем маргины скролла, убирая причину бага после навбара */
         scroll-margin-top: 0px !important;
@@ -29,13 +29,10 @@
     
     /* Специфичные настройки для галереи */
     #gallery.screen-section {
-        padding-top: 85px !important;
+        padding-top: 75px !important;
         justify-content: flex-start !important;
     }
 
-    #gallery.screen-section:target {
-        scroll-margin-top: 80px !important;
-    }
     .scroll-gallery {
         display: flex;
         overflow-x: auto;
