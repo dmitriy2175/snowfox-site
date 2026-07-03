@@ -23,7 +23,7 @@
     /* ХИТРОСТЬ ДЛЯ НАВИГАЦИИ: когда на секцию переходят по ссылке (target),
        мы принудительно даем браузеру увеличенный отступ сверху, чтобы заголовки не прятались */
     .screen-section:target {
-        scroll-margin-top: 87px !important; /* Увеличь до 105px, если нужно еще больше отступа */
+        scroll-margin-top: 80px !important; /* Увеличь до 105px, если нужно еще больше отступа */
     }
 
     /* Специфичные настройки для галереи */
@@ -32,7 +32,7 @@
         justify-content: flex-start !important;
     }
     #gallery.screen-section:target {
-        scroll-margin-top: 95px !important;
+        scroll-margin-top: 80px !important;
     }
     .scroll-gallery {
         display: flex;
