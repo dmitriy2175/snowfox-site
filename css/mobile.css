@@ -4,8 +4,16 @@
    ========================================================================== */
 @media (max-width: 1023px) {
 
+    .scroll-container {
+        scroll-padding-top: 80px !important; 
+    }
+
     .screen-section {
+        height: calc(100vh - 80px) !important;
+        min-height: calc(100vh - 80px) !important;
         scroll-margin-top: 80px !important;
+        scroll-snap-align: start !important; /* Листание пальцем будет магнититься строго по верхней линии */
+        box-sizing: border-box !important;
     }
 
     #gallery.screen-section {
