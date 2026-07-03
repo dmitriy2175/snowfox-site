@@ -1,6 +1,4 @@
-/* ==========================================================================
-   БАЗОВЫЕ И ОБЩИЕ СТИЛИ (РАНЕЕ БЫЛИ В MOBILE.CSS)
-   ========================================================================== */
+
 html, body {
     height: 100%;
     margin: 0;
@@ -292,9 +290,7 @@ footer.bg-dark, footer.bg-dark p, body > footer, body > footer p {
     color: #1a1a1a !important;
 }
 
-/* ==========================================================================
-   СТИЛИ ДЛЯ КОМПЬЮТЕРОВ И НОУТБУКОВ (ПЕРЕКРЫВАЮТ МОБИЛЬНЫЕ)
-   ========================================================================== */
+
 @media (min-width: 1024px) {
     .hero-title {
         color: #ffffff !important;
@@ -399,10 +395,10 @@ footer.bg-dark, footer.bg-dark p, body > footer, body > footer p {
     .coaches-title {
         font-size: 1.3rem !important;
         font-weight: 400 !important;
-        margin-top: 15px !important;   /* Отступ сверху от фотографии */
+        margin-top: 15px !important;  
         margin-bottom: 0px !important;
-        text-align: center !important;  /* Выравнивание текста по центру */
-        width: 100% !important;         /* Растягиваем на всю ширину, чтобы текст центрировался корректно */
+        text-align: center !important;  
+        width: 100% !important;       
         display: block !important;
         font-style: italic !important;
     }
@@ -588,9 +584,7 @@ footer.bg-dark, footer.bg-dark p, body > footer, body > footer p {
     }
 }
 
-/* ==========================================================================
-   ПРОМЕЖУТОЧНЫЕ ЭКРАНЫ (ПЛАНШЕТЫ)
-   ========================================================================== */
+
 @media (min-width: 768px) and (max-width: 1023px) {
     .section-title { font-size: 2.2rem; }
     .hero-title { font-size: 3.5rem; }

@@ -1,61 +1,29 @@
-/* ==========================================================================
-   СТИЛИ ИСКЛЮЧИТЕЛЬНО ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ И СМАРТФОНОВ
-   Все изменения здесь будут менять вид на телефонах, не ломая ноутбуки.
-   ========================================================================== */
+
 @media (max-width: 1023px) {
 
-    /* Чистим контейнер от конфликтующих мобильных сдвигов */
 
     .scroll-container {
-
         scroll-padding-top: 0px !important; 
-
     }
 
-
-
-    /* Идеальный скролл пальцем: честные 100vh и сброшенный маргин */
 
     .screen-section {
-
         height: 100vh !important;
-
         min-height: 100vh !important;
-
         box-sizing: border-box !important;
-
-        padding-top: 60px !important; /* Базовый внутренний отступ */
-
-        
-
+        padding-top: 80px !important; 
         scroll-margin-top: 0px !important;
-
         scroll-snap-align: start !important; 
-
     }
-
-
-
-    /* ХИТРОСТЬ ДЛЯ НАВИГАЦИИ: когда на секцию переходят по ссылке (target),
-
-       мы принудительно даем браузеру увеличенный отступ сверху, чтобы заголовки не прятались */
 
     .screen-section:target {
-
-        scroll-margin-top: 80px !important; /* Увеличь до 105px, если нужно еще больше отступа */
-
+        scroll-margin-top: 80px !important; 
     }
 
 
-
-    /* Специфичные настройки для галереи */
-
     #gallery.screen-section {
-
         padding-top: 60px !important;
-
         justify-content: flex-start !important;
-
     }
 
     #gallery.screen-section:target {
@@ -134,10 +102,8 @@
         width: 95% !important;
         max-width: 360px !important;
         
-        /* Уменьшаем высоту примерно в 1.5 раза (было 150px) */
         height: 110px !important; 
         
-        /* Фиксируем верхнюю часть изображения и аккуратно кадрируем (обрезаем снизу) */
         object-fit: cover !important;
         object-position: top !important; 
         
@@ -319,10 +285,8 @@
         width: 95% !important;
         max-width: 360px !important;
         
-        /* Уменьшаем высоту примерно в 1.5 раза для экономии места на экране */
         height: 110px !important; 
         
-        /* object-fit: cover обрезает лишнее, а object-position: top фиксирует верх */
         object-fit: cover !important;
         object-position: top !important; 
         
